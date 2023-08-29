@@ -1,0 +1,37 @@
+Tag tables:
+
+- Tags Best before date
+	* Memory
+		> Best_before_date		(Int)	: BBD címkét számító FB kimenet
+		
+- Tags Conveyor
+	* Memory
+		> Conveyor_Direction	(Bool)	: Szalag irány (?)
+		> Conveyor_Start_(...)	(Bool)	: Szalag indítás
+		> Conveyor_Drive_OK		(Bool)	: Szalagot vezérlő FC végzett
+	* Output
+		> Conveyor_Start_Forward(Bool)	: Szalag indítás előre (Szalagot vezérlő FC kimenet)
+		> Conveyor_Start_Backw..(Bool)	: Szalag indítás hátra (Szalagot vezérlő FC kimenet)
+		
+- Tags Filling
+	* Output
+		> Valve_Fill_Bottle		(Int)	: Keverő tartály szelep
+		
+- Tags GRAPH Sequence
+	* Memory
+		> GRAPH_Group_Fault 	(Bool)	: Általános engedélyező bit, minden transition-ban benne van
+		> GRAPH_Count_Bottle 	(Int)	: Megtöltött palackok száma
+		> GRAPH_Filling_Complete(Bool)	: Folyamat kész
+		> Start_GRAPH_Sequence	(Bool)	: GRAPH FB indítása vagy inicializálása
+	* Output
+		> Valve_water			(Bool)	: Víz szelep
+		> Valve_AJC				(Bool)	: Almalé szelep
+		> Valve_OJC				(Bool)	: Narancslé szelep
+		> GRAPH_Mixer_ON		(Bool)	: Keverőlapát
+		> GRAPH_Start_Labeling	(Bool)	: Címkéző indítás
+
+Global DB:
+		> Recipe_element_apple 	(Time)	|
+		> Recipe_element_orange	(Time)	| Ennyi ideig vannak nyitva a szelepek
+		> Recipe_element_water	(Time)	|
+		> BBD_Duration			(Int)	: Ennyi évig áll el a termék
